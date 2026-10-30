@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "ChatSirLaxFirebaseBlueprint",
+  "description": "Firestore blueprint schema for Chat Sir Lax user data, community impact, study notes, and meal donations",
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with study statistics, badges, and learning level",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "homeworksSolved": { "type": "number" },
+        "mealsSponsored": { "type": "number" },
+        "packsDownloaded": { "type": "number" },
+        "voiceListens": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid"]
+    },
+    "ChatMessageDoc": {
+      "title": "ChatMessageDoc",
+      "description": "A chat interaction between the student and Sir Lax",
+      "type": "object",
+      "properties": {
+        "sender": { "type": "string", "enum": ["user", "bot"] },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "mode": { "type": "string" },
+        "gradeLevel": { "type": "string" },
+        "isOffline": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["sender", "text", "timestamp"]
+    },
+    "StudyNote": {
+      "title": "StudyNote",
+      "description": "Saved lesson note or project outline eligible for export to Google Workspace",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string" },
+        "exportedToDoc": { "type": "boolean" },
+        "exportedToDrive": { "type": "boolean" },
+        "docUrl": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "content"]
+    },
+    "MealDonation": {
+      "title": "MealDonation",
+      "description": "Logged community meal contribution through direct sponsor or ad view",
+      "type": "object",
+      "properties": {
+        "donorName": { "type": "string" },
+        "count": { "type": "number" },
+        "type": { "type": "string", "enum": ["direct-sponsor", "ad-watch"] },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["count", "type"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Private user profile and learning progress"
+    },
+    "/users/{userId}/chat_messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ChatMessageDoc" },
+      "description": "User conversation history with Sir Lax"
+    },
+    "/users/{userId}/study_notes/{noteId}": {
+      "schema": { "$ref": "#/entities/StudyNote" },
+      "description": "User saved study notes and lesson summaries"
+    },
+    "/meal_donations/{donationId}": {
+      "schema": { "$ref": "#/entities/MealDonation" },
+      "description": "Public ledger of sponsored meals and ad-sponsored student nourishment"
+    }
+  }
+}

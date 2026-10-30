@@ -1,0 +1,8 @@
+{
+  "name": "Remix Chat Sir Lax - Simple AI Tutor \u0026 Community Hope",
+  "description": "Ultra-simple English AI tutor, voice assistant, DIY school projects, offline study packs, and community feeding program support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

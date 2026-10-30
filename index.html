@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Ignore WebSocket connection errors from Vite HMR in iframe preview
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && (
+          (typeof e.reason.message === 'string' && e.reason.message.toLowerCase().includes('websocket')) ||
+          (typeof e.reason === 'string' && e.reason.toLowerCase().includes('websocket'))
+        )) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      });
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.toLowerCase().includes('websocket')) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      });
+    </script>
+    <title>Chat Sir Lax - Simple AI Tutor &amp; Community Hope</title>
+    <meta name="description" content="Ultra-simple English AI tutor, voice assistant, DIY school projects, offline study packs, and community feeding program support." />
+    <meta property="og:title" content="Chat Sir Lax - Simple AI Tutor &amp; Community Hope" />
+    <meta property="og:description" content="Ultra-simple English AI tutor, voice assistant, DIY school projects, offline study packs, and community feeding program support." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#d97706" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" href="/assets/aistudio/Chat_Sir_Lax_7ef7468b.png" />
+    <link rel="apple-touch-icon" href="/assets/aistudio/Chat_Sir_Lax_7ef7468b.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

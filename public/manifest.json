@@ -1,0 +1,19 @@
+{
+  "name": "Chat Sir Lax - Simple AI Tutor & Community Hope",
+  "short_name": "Chat Sir Lax",
+  "description": "Ultra-simple English AI tutor, voice assistant, DIY school projects, offline study packs, and community feeding program support.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fef3c7",
+  "theme_color": "#d97706",
+  "icons": [
+    {
+      "src": "/assets/aistudio/Chat_Sir_Lax_7ef7468b.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
